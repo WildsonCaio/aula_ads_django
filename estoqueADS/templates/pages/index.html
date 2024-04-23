@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <label for="">Logo</label>
+        <nav class="navbar">
+            <ul class="nav-item">
+                <li class="nav-link"><a href="">Produtos</a></li>
+                <li class="nav-link"><a href="">Pedidos</a></li>
+                <li class="nav-link"><a href="">Relatórios</a></li>
+            </ul>
+        </nav>
+        <form action="">
+            <input type="text">
+            <button>Buscar</button>
+        </form>
+    </header>
+    <main>
+        <a href="{% url 'adicionar-produto' %}">+Produto</a>
+        <table>
+            <thead>
+                <th>Nome</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+                <th>Código</th>
+            </thead>
+            <tbody>
+                {% for produto in produtos %}
+                <tr>
+                    <td>{{produto.nome}}</td>
+                    <td>{{produto.preco}}</td>
+                    <td>{{produto.quantidade}}</td>
+                    <td>{{produto.codigo}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
