@@ -5,11 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        box-sizing: border-box;    
+       }
+        form{
+            max-width: 500px;
+            height: 400px;
+            margin: 60px auto;
+            background-color: rgb(51, 160, 160);
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 20px;
+        }
+        h1{
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        input{
+            margin: 2px 0;
+            height: 2rem;
+        }
+
+        button{
+            height: 2rem;
+            margin: 10px 0;
+        }
+    </style>
 </head>
 <body>
     
 
+
     <form method="POST"> {% csrf_token %}
+        <h1>Login</h1>
         <input type="text" name="username">
         <input type="password" name="password">
         <button type="submit">Entrar</button>

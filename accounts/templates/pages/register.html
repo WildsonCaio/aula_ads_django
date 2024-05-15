@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        box-sizing: border-box;    
+       }
+        form{
+            max-width: 500px;
+            height: 400px;
+            margin: 60px auto;
+            background-color: rgb(51, 160, 160);
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 20px;
+        }
+        h1{
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        input{
+            padding: 0 12px;
+            margin: 2px 0;
+            height: 2rem;
+            outline: none;
+        }
+
+        button{
+            height: 2rem;
+            margin: 10px 0;
+        }
+
+        .invalid-input{
+            border-color: red;
+            animation: invalid .1s linear;
+        }
+
+
+        @keyframes invalid{
+            0%{
+                transform: translate(-2px, 2px);
+            }
+            30%{
+                transform: translate(2px, -2px);
+            }
+            100%{
+                transform: translate(0px, 0px);
+            }
+        }
+    </style>
+</head>
+<body>
+    
+
+
+    <form method="POST"> {% csrf_token %}
+        <h1>Cadastro</h1>
+        <input type="text" id="name" name="username" placeholder="Usuário">
+        <input type="text" id="email" name="email" placeholder="Email">
+        <input type="password" id="password" name="password" placeholder="Senha">
+        <input type="password" id="repeat_password" name="repeat_password" placeholder="Repita sua senha">
+        <button id="register" >Cadastrar</button>
+    </form>
+
+
+
+    <script>
+
+        let name = document.querySelector('#name')
+        let email = document.querySelector('#email')
+        let password = document.querySelector('#password')
+        let repeat_password = document.querySelector('#repeat_password')
+        let register = document.querySelector('#register')
+        
+        name.addEventListener('change',(e)=>{
+            if(name.value.length < 3){
+                name.classList.add('invalid-input')
+            }else{
+                name.classList.remove('invalid-input')
+            }
+        })
+        repeat_password.addEventListener('change',(e)=>{
+            if(password.value != repeat_password.value){
+                repeat_password.classList.add('invalid-input')
+            }else{
+                repeat_password.classList.remove('invalid-input')
+            }
+        })
+
+
+
+    </script>
+
+
+</body>
+</html>
